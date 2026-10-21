@@ -11,10 +11,10 @@ jobs:
   echo-bye:
       runs-on: ubuntu-latest
       steps:
-        - name: "failed step"
+        - name: "success step"
           run: |
-            echo "I'll fail"
-            exit 1
+            echo "I'll success"
+            exit 0
         # the upcoming command will fail. because the previous step failed
         - name: "say bye"
           run: echo "Bye Github Actions!"
