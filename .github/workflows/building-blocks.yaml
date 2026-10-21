@@ -15,6 +15,6 @@ jobs:
           run: |
             echo "I'll fail"
             exit 1
-        # so the upcoming command will also fail
+        # the upcoming command will fail. because the previous step failed
         - name: "say bye"
           run: echo "Bye Github Actions!"
