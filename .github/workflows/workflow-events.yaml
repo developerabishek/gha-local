@@ -4,7 +4,7 @@ on:
     pull_request: 
     schedule:
         - cron: '*/5 * * * *'
-    # This's manual trigger from UI
+    # This's manual trigger so we can run this workflow from UI
     workflow_dispatch: 
 
 jobs:
