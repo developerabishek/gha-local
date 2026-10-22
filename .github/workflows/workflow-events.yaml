@@ -1,15 +1,14 @@
 name: workflow-events
 on: 
-    push:
-    pull_request: 
-    schedule:
-        - cron: '*/5 * * * *'
-    # This's manual trigger so we can run this workflow from UI
-    workflow_dispatch: 
-
+  push:
+  pull_request: 
+  schedule:
+    - cron: '*/5 * * * *'
+  # This's manual trigger so we can run this workflow from UI
+  workflow_dispatch: 
 jobs:
-    echo:
-        runs-on: ubuntu-latest
-        steps:
-            - name: show the trigger
-              run: echo "I've been triggered by a ${{github.event_name}}."
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: show the trigger
+        run: echo "I've been triggered by a ${{github.event_name}}."
