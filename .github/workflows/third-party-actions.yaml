@@ -5,11 +5,19 @@ jobs:
   node-latest:
     runs-on: ubuntu-latest
     steps:
-      # checkout is needed because the runner starts with an empty workspace
+      # we need to checkout because workflow didn't know our code even it's in same folder
       - name: checkout code
         uses: actions/checkout@v4
       - name: printing folders
         run: ls
+      - name: setting up node
+        uses: actions/setup-node@v4
+        with:
+          node-version:  "26.x"
+      - name: install dependencies
+        run: npm install
+        working-directory: /
+        
 
       # - uses: actions/setup-node@v7
       #   with:
