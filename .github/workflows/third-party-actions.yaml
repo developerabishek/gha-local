@@ -7,7 +7,7 @@ jobs:
     steps:
       # we need to checkout because workflow didn't know our code even it's in same folder
       - name: checkout code
-        uses: actions/checkout@7
+        uses: actions/checkout@4
       - name: printing folders
         run: ls
 
