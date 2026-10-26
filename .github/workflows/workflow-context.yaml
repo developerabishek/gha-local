@@ -19,4 +19,3 @@ jobs:
       - name: Retrieve value
         run: |
           echo "Variable value : ${{vars.MY_VAR}}"
-# 6:45
