@@ -1,4 +1,5 @@
 name: workflow-context
+run-name: ${{inputs.debug}}
 on: 
   push:
   workflow_dispatch:
