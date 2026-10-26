@@ -42,7 +42,6 @@ jobs:
           echo "Overwritten env : ${{env.MY_OVERWRITTEN_VAR}}"
 
       - name: Print env variable 2
-        env:
           # echo will show job for overwritten
         run: |
           echo "Workflow env : ${{env.MY_WORKFLOW_VAR}}"
