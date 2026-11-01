@@ -1,0 +1,36 @@
+name: Working with inputs
+on:
+  workflow_dispatch:
+    inputs:
+      dry-run:
+        type: boolean
+        description: "Skip deployment steps and only print the inputs"
+        default: false
+      target:
+        type: environment
+        required: true
+        description: "The target environment for deployment"
+      tag:
+        type: choice
+        description: "The tag to deploy status"
+        options:
+          - latest
+          - stable
+
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo inputs
+        run: |
+          echo "Dry Run: ${{ inputs.dry-run }}"
+          echo "Target: ${{ inputs.target }}"
+          echo "Tag: ${{ inputs.tag }}"
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ inputs.dry-run == 'false' }}
+    steps:
+      - name: deploy to target
+        run: |
+          echo "Deploying to ${{ inputs.target }} with tag ${{ inputs.tag }}"
+    needs: echo
