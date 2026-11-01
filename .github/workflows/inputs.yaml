@@ -28,7 +28,7 @@ jobs:
           echo "Tag: ${{ inputs.tag }}"
   deploy:
     runs-on: ubuntu-latest
-    if: ${{ inputs.dry-run == 'false' }}
+    if: ${{ inputs.dry-run == false }}
     steps:
       - name: deploy to target
         run: |
