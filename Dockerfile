@@ -1,6 +1,3 @@
-FROM node:alpine
+FROM ruby:alpine
 WORKDIR /app
-COPY package.json .
-RUN npm install
-COPY . .
-CMD ["node", "index.js"]
+CMD ["ruby", "main.rb"]
