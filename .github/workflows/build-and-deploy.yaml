@@ -1,0 +1,13 @@
+name: Build and deploy
+on:
+  workflow_dispatch:
+jobs:
+  build-docker-images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check docker status
+        run: |
+          docker --version
+          docker ps -a
+          docker images
+
