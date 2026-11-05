@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: check docker status
         run: |
-          docker build -t hello:${{ github.event.inputs.version }}
+          docker build -t hello:${{ github.event.inputs.version }} .
           docker images
           docker run hello:${{ github.event.inputs.version }}
 
