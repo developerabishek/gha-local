@@ -17,7 +17,16 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '26.x'
+      - name: download cache
+        uses: actions/cache@v3
+        if: ${{inputs.use-cache}}
+        id: cache
+        with:
+          path: package.json
+          key: deps-node-modules-${{hashFiles('package.json')}}
+
       - name: installing dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
         run: npm install
       - name: building
         run: npm run build 
