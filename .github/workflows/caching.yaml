@@ -22,7 +22,7 @@ jobs:
         if: ${{inputs.use-cache}}
         id: cache
         with:
-          path: package.json
+          path: node_modules
           key: deps-node-modules-${{hashFiles('package-lock.json')}}
 
       - name: installing dependencies
