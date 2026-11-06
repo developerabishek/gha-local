@@ -14,20 +14,20 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
       - name: setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '26.x'
       - name: download cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         if: ${{inputs.use-cache}}
         id: cache
         with:
           path: package.json
-          key: deps-node-modules-${{hashFiles('package.json')}}
+          key: deps-node-modules-${{hashFiles('package-lock.json')}}
 
       - name: installing dependencies
         if: steps.cache.outputs.cache-hit != 'true'
-        run: npm install
+        run: npm ci
       - name: building
         run: npm run build 
       - name: deploy
