@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v4
+      - name: setup node
+        uses: actions/setup-node@v3
       - name: installing dependencies
         run: npm install
       - name: building
