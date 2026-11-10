@@ -14,9 +14,6 @@ jobs:
         include: 
           - os: ubuntu-latest
             node-version: 16.x
-          - os: ubuntu-latest
-            node-version: 21.x
-            tag: experimental
     steps:
       - name: setup node
         uses: actions/setup-node@v7
@@ -25,3 +22,14 @@ jobs:
       - name: performs test
         run: echo "Running test on os ${{matrix.os}} on node ${{matrix.node-version}}"
 
+  include-example:
+    name: ${{matrix.color}}-${{matrix.shape}}-${{matrix.shape}}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        color: [red, green]
+        shape: [circle, square]
+        size: [small, large] 
+        include:
+          - color: red
+            shape: triangle
