@@ -31,9 +31,9 @@ jobs:
         shape: [circle, square]
         size: [small, large] 
         include:
-          - opacity: 50
           - color: red
             shape: triangle
+            opacity: 50
     steps:
       - name: Dummy stop
         run: echo "${{matrix.color}}-${{matrix.shape}}-${{matrix.shape}}"
