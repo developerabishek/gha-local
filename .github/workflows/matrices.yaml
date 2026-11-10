@@ -33,3 +33,6 @@ jobs:
         include:
           - color: red
             shape: triangle
+    steps:
+      - name: Dummy stop
+        run: echo "${{matrix.color}}-${{matrix.shape}}-${{matrix.shape}}"
